@@ -1,2 +1,1 @@
-<p-select [options]="options" [(ngModel)]="selected" 
-    placeholder="Sélectionnez..." fluid />
+<p-select [options]="options" [(ngModel)]="selected" (ngModelChange)="onSelect()" placeholder="Sélectionnez..." fluid />

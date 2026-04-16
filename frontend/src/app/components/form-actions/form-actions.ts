@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Action } from '../action/action';
 import { FormActionsConfig } from '../../core/models/form-actions';
 
@@ -10,4 +10,9 @@ import { FormActionsConfig } from '../../core/models/form-actions';
 })
 export class FormActions {
   @Input({required: true}) config!: FormActionsConfig;
+  @Output() actionClick = new EventEmitter<void>();
+
+  onAction(): void {
+    this.actionClick.emit();
+  }
 }

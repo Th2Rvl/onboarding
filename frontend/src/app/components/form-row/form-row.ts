@@ -10,4 +10,5 @@ import { FormRowConfig } from '../../core/models/form-row';
 })
 export class FormRow {
   @Input({required: true}) row!: FormRowConfig;
+  @Input() submitted: boolean = false;
 }

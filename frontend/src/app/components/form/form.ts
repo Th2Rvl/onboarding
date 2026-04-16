@@ -11,4 +11,9 @@ import { FormConfig } from '../../core/models/form'
 })
 export class Form {
   @Input({required: true}) config!: FormConfig;
+  submitted: boolean = false;
+
+  onSubmit(): void {
+    this.submitted = true;
+  }
 }

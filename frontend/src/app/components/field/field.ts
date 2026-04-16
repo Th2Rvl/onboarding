@@ -11,10 +11,15 @@ import { FieldConfig } from '../../core/models/field';
 })
 export class Field {
   @Input({required: true}) field!: FieldConfig;
+  @Input() submitted: boolean = false;
 
   value: any= null;
 
-  onValueChange(value: any) {
+  onValueChange(value: any): void {
     this.value = value;
+  }
+
+  get showError(): boolean {
+    return this.submitted && !!this.field.required && !this.value;
   }
 }
