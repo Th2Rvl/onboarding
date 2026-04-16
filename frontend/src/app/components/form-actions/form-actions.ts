@@ -3,11 +3,11 @@ import { Action } from '../action/action';
 import { FormActionsConfig } from '../../core/models/form-actions';
 
 @Component({
-  selector: 'app-form-action',
+  selector: 'app-form-actions',
   imports: [Action],
-  templateUrl: './form-action.html',
-  styleUrl: './form-action.scss',
+  templateUrl: './form-actions.html',
+  styleUrl: './form-actions.scss',
 })
-export class FormAction {
-  @Input({required: true}) formActionsConfig!: FormActionsConfig;
+export class FormActions {
+  @Input({required: true}) config!: FormActionsConfig;
 }
