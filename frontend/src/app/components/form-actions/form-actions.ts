@@ -1,4 +1,4 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Action } from '../action/action';
 import { FormActionsConfig } from '../../core/models/form-actions';
 
