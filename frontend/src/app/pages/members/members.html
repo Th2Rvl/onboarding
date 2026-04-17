@@ -1,7 +1,9 @@
 <div class="page">
     <section>
+        <!-- formulaire d'ajout de membre -->
         <app-form [config]="formConfig" [style.width.px]="400" (formSubmit)="addMember($event)"/>
     </section>
+    <!-- Liste des membres -->
     <section [style.flex]="1">
         <h2>Liste des membres</h2>
 

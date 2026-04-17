@@ -5,4 +5,5 @@ export interface Member {
     prenom: string;
     email: string;
     role: MemberRole;
+    teamId: number;
 }

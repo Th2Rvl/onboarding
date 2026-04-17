@@ -7,6 +7,7 @@ import { Members as MembersService } from '../../services/members'
 import { TableModule } from 'primeng/table';
 import { RoleSeverityPipe } from '../../shared/pipes/role-severity-pipe';
 import { TagModule } from 'primeng/tag';
+import { value } from '@primeuix/themes/aura/knob';
 
 @Component({
   selector: 'app-members',
@@ -63,6 +64,7 @@ export class Members {
             prenom: values['prenom'],
             email: values['email'],
             role: values['role'] ?? 'membre',
+            teamId: values['teamId']
         };
         this.memberService.addMember(member);
     }
