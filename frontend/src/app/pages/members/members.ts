@@ -5,10 +5,12 @@ import { FormConfig } from '../../core/models/form';
 import { email } from '@angular/forms/signals';
 import { Members as MembersService } from '../../services/members'
 import { TableModule } from 'primeng/table';
+import { RoleSeverityPipe } from '../../shared/pipes/role-severity-pipe';
+import { TagModule } from 'primeng/tag';
 
 @Component({
   selector: 'app-members',
-  imports: [Form, TableModule],
+  imports: [Form, TableModule, TagModule, RoleSeverityPipe],
   templateUrl: './members.html',
   styleUrl: './members.scss',
 })
