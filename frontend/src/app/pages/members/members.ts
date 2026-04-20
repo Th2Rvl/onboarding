@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Form } from '../../components/form/form';
 import { Member } from '../../core/models/member';
 import { FormConfig } from '../../core/models/form';
@@ -8,16 +8,36 @@ import { TableModule } from 'primeng/table';
 import { RoleSeverityPipe } from '../../shared/pipes/role-severity-pipe';
 import { TagModule } from 'primeng/tag';
 import { value } from '@primeuix/themes/aura/knob';
+import { ActivatedRoute } from '@angular/router';
+import { Button } from 'primeng/button';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-members',
-  imports: [Form, TableModule, TagModule, RoleSeverityPipe],
+  imports: [Form, TableModule, TagModule, RoleSeverityPipe, Button, RouterLink],
   templateUrl: './members.html',
   styleUrl: './members.scss',
 })
-export class Members {
+
+export class Members implements OnInit {
+    
+    private teamId: number = 0;
+    protected members: Member[] = [];
     private memberService = inject(MembersService);
-    members: Member[] = [];
+    
+    // Récupération du teamId saisie dans la route
+    constructor(private route:ActivatedRoute) {} // Injection du service ActivateRoute
+    ngOnInit(): void { // Récupération du paramètre au démarage du composant
+        const idParam = this.route.snapshot.paramMap.get('teamId');
+
+        if (idParam !== null) {
+            this.teamId = Number(idParam);
+            this.members = this.memberService.getMembersByTeam(this.teamId);
+            console.log('ID récupéré :', this.teamId);
+        }
+    }
+    
+    
 
     formConfig: FormConfig = {
         title: 'Ajouter un membre',
@@ -64,7 +84,7 @@ export class Members {
             prenom: values['prenom'],
             email: values['email'],
             role: values['role'] ?? 'membre',
-            teamId: values['teamId']
+            teamId: this.teamId
         };
         this.memberService.addMember(member);
     }

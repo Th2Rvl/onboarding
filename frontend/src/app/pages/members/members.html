@@ -1,5 +1,7 @@
 <div class="page">
     <section>
+        <p-button label="Retour aux équipes" icon="pi pi-arrow-left" [link]="true" routerLink="/teams" severity="secondary" />
+
         <!-- formulaire d'ajout de membre -->
         <app-form [config]="formConfig" [style.width.px]="400" (formSubmit)="addMember($event)"/>
     </section>

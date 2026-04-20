@@ -14,10 +14,11 @@ import { TableModule } from 'primeng/table';
   templateUrl: './teams.html',
   styleUrl: './teams.scss',
 })
+
 export class Teams {
   private teamService = inject(TeamsService);
   private routeur = inject(Router);
-  teams: Team[] = [];
+  teams: Team[] = this.teamService.getTeams();
 
   formConfig: FormConfig = {
     title: 'Ajouter une équipe',
