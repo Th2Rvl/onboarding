@@ -1,0 +1,62 @@
+{
+    "teams": [
+        {
+            "id": 1,
+            "nom": "Développement"
+        },
+        {
+            "id": 2,
+            "nom": "Marketing"
+        },
+        {
+            "id": 3,
+            "nom": "Design"
+        },
+        {
+            "id": 4,
+            "nom": "Ressources Humaines"
+        },
+        {
+            "id": 5,
+            "nom": "Vente"
+        },
+        {
+            "id": 6,
+            "nom": "Vente"
+        }
+    ],
+    "members": [
+        {
+            "id": 1,
+            "nom": "Dupont",
+            "prenom": "Jean",
+            "email": "jean.dupont@email.com",
+            "role": "admin",
+            "teamId": 1
+        },
+        {
+            "id": 2,
+            "nom": "Martin",
+            "prenom": "Sophie",
+            "email": "sophie.martin@email.com",
+            "role": "membre",
+            "teamId": 1
+        },
+        {
+            "id": 3,
+            "nom": "Durand",
+            "prenom": "Pierre",
+            "email": "pierre.durand@email.com",
+            "role": "membre",
+            "teamId": 2
+        },
+        {
+            "id": 7,
+            "nom": "Leroy",
+            "prenom": "Julie",
+            "email": "julie@test.com",
+            "role": "membre",
+            "teamId": 0
+        }
+    ]
+}
