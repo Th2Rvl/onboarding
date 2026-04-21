@@ -1,6 +1,6 @@
 <div class="page">
     <section>
-        <app-form [config]="formConfig" [style.width.px]="400" />
+        <app-form [config]="formConfig" [style.width.px]="400" (formSubmit)="addTeam($event)"/>
     </section>
     <section>    
         <p-table [value]="teams" selectionMode="single" (onRowSelect)="onRowSelect($event)">

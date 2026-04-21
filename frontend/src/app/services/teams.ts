@@ -17,13 +17,13 @@ export class Teams {
     return this.teams;
   }
 
-  getTeamById(id: number): Team[] {
-    return this.teams.filter((team) => team.id == id);
+  getTeamById(id: number): Team | undefined {
+    return this.teams.find((team) => team.id == id);
   }
 
   addTeam(nom: string) {
     let lastId = this.teams.length != 0 ? this.teams[this.teams.length-1].id : 1;
-    let team: Team = {id: lastId, nom: nom};
-    this.teams.push(team)
+    let team: Team = {id: lastId + 1, nom: nom};
+    this.teams.push(team);
   }
 }  

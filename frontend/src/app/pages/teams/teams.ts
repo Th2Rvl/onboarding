@@ -16,6 +16,7 @@ import { TableModule } from 'primeng/table';
 })
 
 export class Teams {
+  
   private teamService = inject(TeamsService);
   private routeur = inject(Router);
   teams: Team[] = this.teamService.getTeams();
@@ -35,8 +36,8 @@ export class Teams {
     }
   };
 
-  addTeam(values: string): void {
-    this.teamService.addTeam(values);      
+  addTeam(values: Record<string, any>): void {
+    this.teamService.addTeam(values['nom']);      
   }
 
   /**

@@ -11,6 +11,8 @@ import { value } from '@primeuix/themes/aura/knob';
 import { ActivatedRoute } from '@angular/router';
 import { Button } from 'primeng/button';
 import { RouterLink } from '@angular/router';
+import { Teams } from '../../services/teams'
+import { Team } from '../../core/models/team';
 
 @Component({
   selector: 'app-members',
@@ -21,9 +23,12 @@ import { RouterLink } from '@angular/router';
 
 export class Members implements OnInit {
     
-    private teamId: number = 0;
+    protected team: Team | undefined = undefined;
+    protected teamId: number = 0;
     protected members: Member[] = [];
+    
     private memberService = inject(MembersService);
+    private teamService = inject(Teams);
     
     // Récupération du teamId saisie dans la route
     constructor(private route:ActivatedRoute) {} // Injection du service ActivateRoute
@@ -33,7 +38,7 @@ export class Members implements OnInit {
         if (idParam !== null) {
             this.teamId = Number(idParam);
             this.members = this.memberService.getMembersByTeam(this.teamId);
-            console.log('ID récupéré :', this.teamId);
+            this.team = this.teamService.getTeamById(this.teamId);
         }
     }
     

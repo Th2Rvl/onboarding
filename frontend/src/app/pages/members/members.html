@@ -6,9 +6,10 @@
         <app-form [config]="formConfig" [style.width.px]="400" (formSubmit)="addMember($event)"/>
     </section>
     <!-- Liste des membres -->
-    <section [style.flex]="1">
-        <h2>Liste des membres</h2>
+    <section [style.flex]="1">        
 
+        <h1>Equipe : {{ team?.nom }}</h1>
+        <h2>Liste des membres</h2>
         <p-table [value]="members">
             <ng-template #header>
                 <tr>
@@ -18,6 +19,7 @@
                     <th>Statut</th>
                 </tr>
             </ng-template>
+            
             <ng-template #body let-member>
                 <tr>
                     <td>{{ member.nom }}</td>
