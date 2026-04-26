@@ -7,11 +7,7 @@ import { isEmpty } from 'rxjs';
 })
 
 export class Teams {
-  private teams: Team[] = [
-    { id: 1, nom: 'Développement' },
-    { id: 2, nom: 'Marketing' },
-    { id: 3, nom: 'Design' }
-  ];
+  private teams: Team[] = [];
   
   getTeams(): Team[] {
     return this.teams;

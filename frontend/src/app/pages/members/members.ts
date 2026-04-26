@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Form } from '../../components/form/form';
 import { Member } from '../../core/models/member';
 import { FormConfig } from '../../core/models/form';
@@ -13,6 +13,7 @@ import { Button } from 'primeng/button';
 import { RouterLink } from '@angular/router';
 import { Teams } from '../../services/teams'
 import { Team } from '../../core/models/team';
+import { MembersApi } from '../../services/api/members-api';
 
 @Component({
   selector: 'app-members',
@@ -22,12 +23,14 @@ import { Team } from '../../core/models/team';
 })
 
 export class Members implements OnInit {
-    
-    protected team: Team | undefined = undefined;
+
     protected teamId: number = 0;
+    protected team: Team | undefined = undefined;
     protected members: Member[] = [];
     
+    private cdr = inject(ChangeDetectorRef);
     private memberService = inject(MembersService);
+    private memberApi = inject(MembersApi);
     private teamService = inject(Teams);
     
     // Récupération du teamId saisie dans la route
@@ -84,13 +87,17 @@ export class Members implements OnInit {
 
     addMember(values: Record<string, any>): void {
         // TODO: récupérer les valeurs du formulaire et ajouter le membre
-        const member: Member = {
+        const member = {
             nom: values['nom'],
             prenom: values['prenom'],
             email: values['email'],
             role: values['role'] ?? 'membre',
             teamId: this.teamId
         };
-        this.memberService.addMember(member);
+
+        this.memberApi.createMember(this.teamId, member).subscribe(member => {
+            this.members = [...this.members, member];
+            this.cdr.markForCheck();
+        });
     }
 }

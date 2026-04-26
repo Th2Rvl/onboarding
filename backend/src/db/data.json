@@ -23,6 +23,14 @@
         {
             "id": 6,
             "nom": "Vente"
+        },
+        {
+            "id": 7,
+            "nom": "Test"
+        },
+        {
+            "id": 8,
+            "nom": "gt"
         }
     ],
     "members": [
@@ -57,6 +65,22 @@
             "email": "julie@test.com",
             "role": "membre",
             "teamId": 0
+        },
+        {
+            "id": 8,
+            "nom": "Leroy",
+            "prenom": "Julie",
+            "email": "julie@test.com",
+            "role": "membre",
+            "teamId": 0
+        },
+        {
+            "id": 9,
+            "nom": "xs",
+            "prenom": "xs",
+            "email": "xs",
+            "role": "membre",
+            "teamId": 3
         }
     ]
 }
